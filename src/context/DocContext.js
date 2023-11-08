@@ -24,6 +24,7 @@ export function DocContextProvider( { children } ) {
           docName, setDocName,
           docAlpha, setDocAlpha,
           docZ, setDocZ,
+          updateWhispsDoc,
         }}
     >
       { children }
