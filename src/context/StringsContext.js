@@ -40,6 +40,7 @@ export function StringsContextProvider( { children } ) {
             value= {{ 
                 whispStrings, setWhispStrings,
                 addGroup, removeGroup,
+                updateString, updateStrings,
             }} 
         >
         { children }
