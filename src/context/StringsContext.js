@@ -5,6 +5,13 @@ const stringsContext = createContext(null);
 
 export function StringsContextProvider( { children } ) {
 
+    const [ stringsTrigger, setStringsTrigger ] = useState( false );
+
+    const triggerStrings = () => {
+        const ts = stringsTrigger;
+        setStringsTrigger( !ts );
+    }
+
     const [ whispStrings, setWhispStrings ] = useState( 
         [ { ...defaultGroupProps, groupString: getGroupString( defaultGroupProps ) }, ]
     );
@@ -13,6 +20,7 @@ export function StringsContextProvider( { children } ) {
         const currentStrings = whispStrings;
         const newString = { ...defaultGroupProps, groupString: getGroupString( defaultGroupProps ) };
         setWhispStrings( [ ...currentStrings, newString ] );
+        triggerStrings();
     };
 
     const removeGroup = ( index ) => {
@@ -41,6 +49,7 @@ export function StringsContextProvider( { children } ) {
                 whispStrings, setWhispStrings,
                 addGroup, removeGroup,
                 updateString, updateStrings,
+                triggerStrings,
             }} 
         >
         { children }

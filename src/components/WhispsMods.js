@@ -1,10 +1,14 @@
 import React from "react";
-import { Typography, Box, Container } from "@mui/material";
+import { Typography, Box, Container, Select, MenuItem } from "@mui/material";
 
-export default function WhispsMods() {
+export default function WhispsMods( preset, presetSubmods, mods ) {
     return ( <>
-        <Box>
+        <Select label='Preset Mod'
+            value='none'
             
-        </Box>
+        >
+            <MenuItem value='none' >none</MenuItem>
+            <MenuItem value='whisps'>whisps</MenuItem>
+        </Select>
     </> );
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import { Typography, Box, Container } from "@mui/material";
+import { Typography, Box, Container, TextField } from "@mui/material";
 
-export default function WhispsScale() {
+export default function WhispsScale( scale ) {
     return ( <>
-        <Box>
-            
-        </Box>
+        <Container>
+            <TextField label='Scale' variant="standard"/>
+        </Container>
     </> );
 }
