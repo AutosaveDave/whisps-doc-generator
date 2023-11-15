@@ -1,10 +1,19 @@
 import React from "react";
 import { Typography, Box, Container, TextField } from "@mui/material";
-
-export default function WhispsScale( {scale} ) {
+import { useStrings } from "../context/StringsContext";
+export default function WhispsScale( {scale, _index } ) {
+    const { changeGroupProps } = useStrings();
+    const handleChange = ( e ) => {
+        changeGroupProps( _index, { scale: Number(e.target.value),} );
+    }
     return ( <>
         <Container>
-            <TextField label='Scale' variant="standard"/>
+            <TextField 
+                label='Scale' 
+                variant="standard" 
+                value={scale}
+                onChange={ handleChange }
+            />
         </Container>
     </> );
 }
