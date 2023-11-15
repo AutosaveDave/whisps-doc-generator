@@ -5,11 +5,11 @@ import { useStrings } from "../context/StringsContext";
 export default function AddWhispsStringBtn() {
     const { addGroup } = useStrings();
     return ( <>
-    <Box>
-        <Button onClick={ addGroup }>
+    <Container m={2}>
+        <Button variant="contained" color="success" onClick={ addGroup }>
             <Typography>Add Group</Typography> 
         </Button>
-    </Box>
+    </Container>
         
     </> );
 }

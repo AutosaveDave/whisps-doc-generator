@@ -27,12 +27,25 @@ export function StringsContextProvider( { children } ) {
         const currentStrings = whispStrings;
         currentStrings.splice( index, 1 );
         setWhispStrings( currentStrings );
+        triggerStrings();
+    }
+
+    const changeGroupProps = ( _i, propObj ) => {
+        let currentStrings = whispStrings;
+        Object.entries( propObj ).forEach( ( [ key, val ] ) => {
+            currentStrings[_i][ `${key}` ] = val;
+            console.log(key)
+            console.log(currentStrings[_i][ `${key}` ])
+        } );
+        setWhispStrings( currentStrings );
+        triggerStrings();
     }
 
     const updateString = ( index ) => {
         const currentStrings = whispStrings;
         currentStrings[ index ].groupString = getGroupString( currentStrings[ index ] );
         setWhispStrings( currentStrings );
+        triggerStrings();
     }
 
     const updateStrings = () => {
@@ -41,6 +54,7 @@ export function StringsContextProvider( { children } ) {
             currentStrings[ a ].groupString = getGroupString( currentStrings[ a ] );
         }
         setWhispStrings( currentStrings );
+        triggerStrings();
     }
         
     return (
@@ -49,7 +63,7 @@ export function StringsContextProvider( { children } ) {
                 whispStrings, setWhispStrings,
                 addGroup, removeGroup,
                 updateString, updateStrings,
-                triggerStrings,
+                triggerStrings, changeGroupProps,
             }} 
         >
         { children }
