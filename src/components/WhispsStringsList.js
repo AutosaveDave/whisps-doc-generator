@@ -9,11 +9,11 @@ export default function WhispsStringsList() {
     return ( <>
         <Grid container spacing={2}>
             { whispStrings.map( ( wString, i ) =>
-                <Grid item={true} xs={12} sm={6} lg={4} key={ `whisps-group-${i}-item` }>
+                <Grid item key={ `whisps-group-${i}-item` }>
                     <WhispsString key={ `whisps-group-${i}-component` } wString={wString} _index={ i }/>
                 </Grid>
             ) }
-            <Grid item>
+            <Grid item xs={12} sm={6} lg={4}>
                 <AddWhispsStringBtn />
             </Grid>
             

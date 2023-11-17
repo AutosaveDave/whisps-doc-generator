@@ -1,7 +1,7 @@
 export const defaultGroupProps = {
     count: 6,
     preset: 'none',
-    presetSubmods: [],
+    presetSubmods: {},
     mods: [],
     scale: 3,
     color: 'mystic',
@@ -10,6 +10,25 @@ export const defaultGroupProps = {
     spawnRight: [ 0, 100 ],
     spawnBottom: [ 0, 100 ],
     spawnLeft: [ 0, 100 ],
+}
+const speedSubmods = [ 'none', 'slowest', 'slower', 'slow', 'slowish', 
+    'fastish', 'fast', 'faster', 'veryfast', 'fastest' ];
+
+// Each preset mod has an object containing categorized sets of subMods
+const presetMods = {
+    none: {},
+    whisp: {
+        speed: [ ...speedSubmods ],
+
+    }
+}
+
+export const getPresetSubmods = ( _preset ) => {
+    if( !_preset || presetMods[ _preset ] === 'none' ) {
+        return null;
+    }
+    const catList =  Object.keys( presetMods[ _preset ] );
+    return { catList: catList, obj: presetMods[ _preset ] };
 }
 
 export const getPresetModString = ( _preset, _submods ) => {
@@ -21,7 +40,6 @@ export const getPresetModString = ( _preset, _submods ) => {
                 presetString += `-${ submod }`;
             } );
         }
-        //presetString += ' ';
     }
     return presetString;
 }

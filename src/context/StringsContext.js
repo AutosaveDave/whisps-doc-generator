@@ -34,8 +34,6 @@ export function StringsContextProvider( { children } ) {
         let currentStrings = whispStrings;
         Object.entries( propObj ).forEach( ( [ key, val ] ) => {
             currentStrings[_i][ `${key}` ] = val;
-            console.log(key)
-            console.log(currentStrings[_i][ `${key}` ])
         } );
         setWhispStrings( currentStrings );
         triggerStrings();
