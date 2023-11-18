@@ -7,15 +7,11 @@ export default function WhispsCount( {count, _index} ) {
         changeGroupProps( _index, { count: Number(e.target.value),} );
     }
     return ( <>
-        <Container>
-            <Stack direction="row" alignItems={'center'}>
-                <TextField 
-                    label="Count" 
-                    variant="standard" 
-                    value={count} 
-                    onChange={ handleChange }
-                />
-            </Stack>
-        </Container>
+        <TextField 
+            label="Count" 
+            variant="standard" 
+            value={count} 
+            onChange={ handleChange }
+        />
     </> );
 }

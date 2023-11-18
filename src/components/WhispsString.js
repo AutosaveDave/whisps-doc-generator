@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Paper, Container } from "@mui/material";
+import { Typography, Paper, Stack } from "@mui/material";
 import WhispsMods from "./WhispsMods";
 import WhispsScale from './WhispsScale';
 import WhispsColor from './WhispsColor';
@@ -16,15 +16,17 @@ export default function WhispsString( {wString, _index} ) {
     console.log(`whispsString[ ${ _index } ] :`)
     console.log(wString);
     return ( <>
-        <Paper variant='outlined' sx={{ m:2, padding:3, backgroundColor:'primary.light' }}>
-            <WhispsCount count={count} _index={_index}/>
-            <WhispsMods _index={_index} preset={preset} presetSubmods={presetSubmods} mods={mods} />
-            <WhispsScale scale={scale} _index={_index}/>
-            <WhispsColor color={color} _index={_index}/>
-            <WhispsBehaviors behaviors={behaviors} _index={_index}/>
-            <WhispsSpawn spawnTop={spawnTop} spawnRight={spawnRight} spawnBottom={spawnBottom} spawnLeft={spawnLeft} />
+        <Paper variant='outlined' sx={{ m:2, padding:2, backgroundColor:'primary.light' }}>
             <WhispsGroupString groupString={groupString} _index={_index}/>
-            <RemoveWhispsGroupBtn _index={ _index }/>
+            <Stack direction="column" spacing={1}>
+                <WhispsCount count={count} _index={_index}/>
+                <WhispsMods _index={_index} preset={preset} presetSubmods={presetSubmods} mods={mods} />
+                <WhispsScale scale={scale} _index={_index}/>
+                <WhispsColor color={color} _index={_index}/>
+                <WhispsBehaviors behaviors={behaviors} _index={_index}/>
+                <WhispsSpawn spawnTop={spawnTop} spawnRight={spawnRight} spawnBottom={spawnBottom} spawnLeft={spawnLeft} />
+                <RemoveWhispsGroupBtn _index={ _index }/>
+            </Stack>
         </Paper>
     </> );
 }

@@ -37,6 +37,8 @@ export function StringsContextProvider( { children } ) {
         } );
         setWhispStrings( currentStrings );
         triggerStrings();
+        updateString( _i );
+        triggerStrings();
     }
 
     const updateString = ( index ) => {

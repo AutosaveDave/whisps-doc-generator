@@ -42,7 +42,7 @@ const themeOptions = {
     fontWeightLight: 300,
     projectTitle: {
       backgroundColor: 'transparent',
-      color: themeColors.text.primary,
+      color: themeColors.text.primary.contrastText,
       noWrap: true,
     },
     projectDescr: {
@@ -52,6 +52,49 @@ const themeOptions = {
     },
   },
   components: {
+    MuiSelect: {
+      defaultProps: {
+        sx: {
+          color: 'secondary.contrastText',
+          backgroundColor:'secondary.light'
+        }
+      }
+    },
+    // MuiMenuItem: {
+    //   defaultProps: {
+    //     sx: {
+    //       color: 'secondary.contrastText',
+    //       backgroundColor:'secondary.main'
+    //     }
+    //   }
+    // },
+    MuiInputBase: {
+      defaultProps: {
+        sx: {
+          color: 'secondary.contrastText',
+          backgroundColor:'secondary.light',
+          px: 2,
+        }
+      }
+    },
+    // MuiPaper: {
+    //   defaultProps: {
+    //     sx: {
+    //       color: 'primary.contrastText',
+    //       backgroundColor:'primary.main',
+    //       borderColor: 'primary.dark',
+    //       p: 2,
+    //     }
+    //   }
+    // },
+    MuiList: {
+      defaultProps: {
+        sx: {
+          color: 'secondary.contrastText',
+          backgroundColor:'secondary.light'
+        }
+      }
+    },
     MuiBox: {
       variants: [
         {

@@ -10,7 +10,7 @@ export default function WhispsDocUI() {
             <DocContextProvider>
                 <Box className='whispsDocUI'>
                     <Container>
-                        <Typography variant='h3'>Whisps Doc Generator</Typography>
+                        <Typography variant='h3' textAlign='center'>Whisps Doc Generator</Typography>
                     </Container>
                     <WhispsStringsList/>
                 </Box>

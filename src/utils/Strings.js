@@ -35,8 +35,9 @@ export const getPresetModString = ( _preset, _submods ) => {
     let presetString = '';
     if( !( _preset === "none" ) ) {
         presetString = `${ _preset }`;
-        if( _submods.length > 0 ) {
-            _submods.forEach( submod => {
+        if( Object.keys( _submods ).length > 0 ) {
+            Object.values( _submods ).forEach( submod => {
+                if( !( submod === 'none' ) && !( submod === '' ) )
                 presetString += `-${ submod }`;
             } );
         }

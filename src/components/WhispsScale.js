@@ -7,13 +7,11 @@ export default function WhispsScale( {scale, _index } ) {
         changeGroupProps( _index, { scale: Number(e.target.value),} );
     }
     return ( <>
-        <Container>
-            <TextField 
-                label='Scale' 
-                variant="standard" 
-                value={scale}
-                onChange={ handleChange }
-            />
-        </Container>
+        <TextField 
+            label='Scale' 
+            variant="standard" 
+            value={scale}
+            onChange={ handleChange }
+        />
     </> );
 }

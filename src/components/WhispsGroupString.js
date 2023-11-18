@@ -3,8 +3,6 @@ import { Typography, Box, Container } from "@mui/material";
 
 export default function WhispsGroupString( {groupString} ) {
     return ( <>
-        <Box>
-            
-        </Box>
+        <Typography variant="body1" color='black' textAlign='center' sx={{ pb: 1 }}>{groupString}</Typography>
     </> );
 }

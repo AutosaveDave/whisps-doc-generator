@@ -28,12 +28,11 @@ export default function WhispsMods( {_index } ) {
     }
     
     return ( <>
-        <Paper variant="outlined" >
             <Stack direction="column" >
                 <Select label='Preset Mod'
                     value={ preset }
                     variant="outlined"
-                    color="secondary"
+                    
                     onChange={handlePresetChange}
                 >
                     <MenuItem value='none'>none</MenuItem>
@@ -42,11 +41,11 @@ export default function WhispsMods( {_index } ) {
                 { catList.length > 0 && 
                     catList.map( ( cat ) => {
                         return (
-                            <Select label={ `${ cat }` }
+                            <Select label={ cat }
                                 value={ presetSubmods[ cat ] }
-                                variant="filled"
+                                variant="outlined"
                                 onChange={ ( e ) => { handleSubmodChange( e, cat ) } }
-                                color='primary'
+                                
                                 sx={{ ml:'3em' }}
                                 key={`wGroup-${ _index }-submod-select-${ cat }`}
                             >
@@ -57,12 +56,11 @@ export default function WhispsMods( {_index } ) {
                                         >{ submod }</MenuItem>
                                     );
                                 } ) }
-                                
                             </Select>
                         );
                     } )
                 }
             </Stack>
-        </Paper>
+
     </> );
 }
