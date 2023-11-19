@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Stack, Select, Box, MenuItem, FormControl, FormLabel, FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { Stack, Select, Paper, MenuItem, FormControl, FormLabel, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { useStrings } from "../context/StringsContext";
 import { getColorOptions } from "../utils/Colors";
 
@@ -16,33 +16,38 @@ export default function WhispsColor( { _index } ) {
         changeGroupProps( _index, { color: e.target.value } );
     }
     return ( <>
-        <Box>
-            <FormControl>
-                <FormLabel >Color</FormLabel>
-                <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue={ true }
-                    value={ isColorSet }
-                    name="radio-buttons-group"
-                    onChange={ handleRadioChange }
+        <Paper sx={{backgroundColor:'secondary.light'}}>
+            <Stack direction='column'>
+                <FormControl>
+                    <FormLabel sx={{ml:2, mt:1}}>Color</FormLabel>
+                    <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        defaultValue={ true }
+                        value={ isColorSet }
+                        name="radio-buttons-group"
+                        onChange={ handleRadioChange }
+                    >
+                        <Stack direction='row' justifyContent={'space-around'}>
+                            <FormControlLabel value={false} control={<Radio />} label="Single Color" />
+                            <FormControlLabel value={true} control={<Radio />} label="Color Set" />
+                        </Stack>
+                    </RadioGroup>
+                </FormControl>
+                <Select label={ ( isColorSet ? 'Color Set' : 'Color' ) }
+                    defaultValue={ 'none' }
+                    value={ color }
+                    onChange={handleColorChange}
+                    sx={{mx:2, mb:2}}
                 >
-                    <FormControlLabel value={false} control={<Radio />} label="Single Color" />
-                    <FormControlLabel value={true} control={<Radio />} label="Color Set" />
-                </RadioGroup>
-            </FormControl>
-            <Select label={ ( isColorSet ? 'Color Set' : 'Color' ) }
-                defaultValue={ 'none' }
-                value={ color }
-                onChange={handleColorChange}
-            >
-                { getColorOptions( isColorSet ).map( ( colorOption, colorIndex ) => (
-                    <MenuItem value={ colorOption }
-                        key={ `color-menu-item-${ colorIndex }` }
-                    >{ colorOption }</MenuItem>
-                ) ) }
-                
-                <MenuItem value='whisp'>whisp</MenuItem>
-            </Select>
-        </Box>
+                    { getColorOptions( isColorSet ).map( ( colorOption, colorIndex ) => (
+                        <MenuItem value={ colorOption }
+                            key={ `color-menu-item-${ colorIndex }` }
+                        >{ colorOption }</MenuItem>
+                    ) ) }
+                    
+                    <MenuItem value='whisp'>whisp</MenuItem>
+                </Select>
+            </Stack>
+        </Paper>
     </> );
 }
