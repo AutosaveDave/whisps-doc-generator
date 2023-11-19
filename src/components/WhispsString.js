@@ -20,9 +20,9 @@ export default function WhispsString( {wString, _index} ) {
             <WhispsGroupString groupString={groupString} _index={_index}/>
             <Stack direction="column" spacing={1}>
                 <WhispsCount count={count} _index={_index}/>
-                <WhispsMods _index={_index} preset={preset} presetSubmods={presetSubmods} mods={mods} />
+                <WhispsMods _index={_index}/>
                 <WhispsScale scale={scale} _index={_index}/>
-                <WhispsColor color={color} _index={_index}/>
+                <WhispsColor _index={_index}/>
                 <WhispsBehaviors behaviors={behaviors} _index={_index}/>
                 <WhispsSpawn spawnTop={spawnTop} spawnRight={spawnRight} spawnBottom={spawnBottom} spawnLeft={spawnLeft} />
                 <RemoveWhispsGroupBtn _index={ _index }/>

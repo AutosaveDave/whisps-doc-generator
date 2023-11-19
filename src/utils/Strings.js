@@ -4,6 +4,7 @@ export const defaultGroupProps = {
     presetSubmods: {},
     mods: [],
     scale: 3,
+    isColorSet: true,
     color: 'mystic',
     behaviors: [],
     spawnTop: [ 0, 100 ],
@@ -11,6 +12,8 @@ export const defaultGroupProps = {
     spawnBottom: [ 0, 100 ],
     spawnLeft: [ 0, 100 ],
 }
+
+
 const speedSubmods = [ 'none', 'slowest', 'slower', 'slow', 'slowish', 
     'fastish', 'fast', 'faster', 'veryfast', 'fastest' ];
 
