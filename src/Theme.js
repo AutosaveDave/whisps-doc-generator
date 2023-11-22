@@ -6,6 +6,7 @@ const themeColors = {
     main: "#E39F17",
     light: "#FFDA91",
     dark: "#967533",
+    superlight: "#FFEDAA",
     //contrastText: '#351a1a',
   },
   secondary: {
@@ -15,14 +16,18 @@ const themeColors = {
     //contrastText: '#351a1a',
   },
   tertiary: {
-    main: "#252525",
+    light: "#FFFCD9",
+    main: "#FFF6C2",
+    dark: "#FFED88",
     //contrastText: '#351a1a',
   },
   text: {
     primary: '#fff4d9',
   },
   error: {
+    light: "#ff7A78",
     main: "#ff6361",
+    dark: "#ff5956",
   },
   warning: {
     main: "#bc5090",
@@ -56,9 +61,24 @@ const themeOptions = {
       defaultProps: {
         sx: {
           color: 'secondary.contrastText',
-          backgroundColor:'secondary.light'
+          bgcolor:'secondary.light',
         }
       }
+    },
+    MuiIconButton: {
+      defaultProps: {
+        color:'tertiary.main',
+        sx:{ 
+          bgcolor:'error.main', 
+          borderRadius:'6%',
+          '&:hover': { 
+            bgcolor:'error.light',
+          }, 
+        },
+      }
+    },
+    MuiButton: {
+      
     },
     // MuiMenuItem: {
     //   defaultProps: {
@@ -73,7 +93,7 @@ const themeOptions = {
         sx: {
           color: 'secondary.contrastText',
           backgroundColor:'secondary.light',
-          px: 2,
+          px: 1,
         }
       }
     },

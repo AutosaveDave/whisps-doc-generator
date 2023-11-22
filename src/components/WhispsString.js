@@ -23,7 +23,7 @@ export default function WhispsString( {wString, _index} ) {
                 <WhispsMods _index={_index}/>
                 <WhispsScale scale={scale} _index={_index}/>
                 <WhispsColor _index={_index}/>
-                <WhispsBehaviors behaviors={behaviors} _index={_index}/>
+                <WhispsBehaviors _index={_index}/>
                 <WhispsSpawn spawnTop={spawnTop} spawnRight={spawnRight} spawnBottom={spawnBottom} spawnLeft={spawnLeft} />
                 <RemoveWhispsGroupBtn _index={ _index }/>
             </Stack>

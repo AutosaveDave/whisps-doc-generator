@@ -13,7 +13,6 @@ export const defaultGroupProps = {
     spawnLeft: [ 0, 100 ],
 }
 
-
 const speedSubmods = [ 'none', 'slowest', 'slower', 'slow', 'slowish', 
     'fastish', 'fast', 'faster', 'veryfast', 'fastest' ];
 
@@ -65,6 +64,9 @@ export const getScaleString = ( scale ) => {
 }
 export const getColorString = ( color ) => {
     let colorString = '';
+    if( color === 'none' ) {
+        return '';
+    }
     if( color ) {
         colorString += ` LC-${ color }`;
     }
@@ -73,27 +75,28 @@ export const getColorString = ( color ) => {
 export const getBehaviorsString = ( behaviors ) => {
     let bString = '';
     let result = '';
-    if( behaviors.length > 0 )
-    behaviors.forEach( ( behav ) => {
-        bString = 'B';
-        if( behav.hasOwnProperty( 'actions' ) && behav.actions.length > 0 ) {
-            behav.actions.forEach( action => {
-                bString += `-${ action.act }.${ action.target }`;
-                action.args.forEach( arg => {
-                    bString += `.${ arg }`;
+    if( behaviors.length > 0 ) {
+        behaviors.forEach( ( behav ) => {
+            bString = 'B';
+            if( behav.hasOwnProperty( 'actions' ) && behav.actions.length > 0 ) {
+                behav.actions.forEach( action => {
+                    bString += `-${ action.act }.${ action.target }`;
+                    action.args.forEach( arg => {
+                        bString += `.${ arg }`;
+                    } );
                 } );
-            } );
-        }
-        if( behav.hasOwnProperty( 'conditions' ) && behav.conditions.length > 0 ) {
-            behav.conditions.forEach( condition => {
-                bString += `-if.${ condition.subject }.${ condition.type }`
-                condition.args.forEach( arg => {
-                    bString += `.${ arg }`;
+            }
+            if( behav.hasOwnProperty( 'conditions' ) && behav.conditions.length > 0 ) {
+                behav.conditions.forEach( condition => {
+                    bString += `-if.${ condition.subject }.${ condition.type }`
+                    condition.args.forEach( arg => {
+                        bString += `.${ arg }`;
+                    } );
                 } );
-            } );
-        }
-        result += ` ${ bString }`;
-    } );
+            }
+            result += ` ${ bString }`;
+        } );
+    }
     return result;
 }
 export const getSpawnString = ( _top, _right, _bottom, _left ) => {

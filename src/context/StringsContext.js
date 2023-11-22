@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { getGroupString, defaultGroupProps } from "../utils/Strings";
+import { defaultBehavior, defaultCondition } from "../utils/Behaviors";
 
 const stringsContext = createContext(null);
 
@@ -56,6 +57,61 @@ export function StringsContextProvider( { children } ) {
         setWhispStrings( currentStrings );
         triggerStrings();
     }
+
+    const addBehavior = ( _i ) => {
+        const currentStrings = whispStrings;
+        currentStrings[ _i ].behaviors.push( defaultBehavior ); 
+        setWhispStrings( currentStrings );
+        triggerStrings();
+        updateString( _i );
+        triggerStrings();
+    }
+
+    const removeBehavior = ( _i, _bIndex ) => {
+        const currentStrings = whispStrings;
+        currentStrings[ _i ].behaviors.splice( _bIndex, 1 ); 
+        setWhispStrings( currentStrings );
+        triggerStrings();
+        updateString( _i );
+        triggerStrings();
+    }
+
+    const addAction = ( _i, _bIndex ) => {
+        const currentStrings = whispStrings;
+        currentStrings[ _i ].behaviors[ _bIndex ].actions.push( defaultBehavior.actions[0] ); 
+        setWhispStrings( currentStrings );
+        triggerStrings();
+        updateString( _i );
+        triggerStrings();
+    }
+    
+    const removeAction = ( _i, _bIndex, _aIndex ) => {
+        let currentStrings = whispStrings;
+        if( currentStrings[ _i ].behaviors[ _bIndex ].actions.length > 1 ) {
+            currentStrings[ _i ].behaviors[ _bIndex ].actions.splice( _aIndex, 1 );
+        } 
+        setWhispStrings( currentStrings );
+        triggerStrings();
+        updateString( _i );
+        triggerStrings();
+    }
+
+    const addCondition = ( _i, _bIndex ) => {
+        const currentStrings = whispStrings;
+        currentStrings[ _i ].behaviors[ _bIndex ].conditions.push( defaultCondition ); 
+        setWhispStrings( currentStrings );
+        triggerStrings();
+        updateString( _i );
+        triggerStrings();
+    }
+    const removeCondition = ( _i, _bIndex, _cIndex ) => {
+        const currentStrings = whispStrings;
+        currentStrings[ _i ].behaviors[ _bIndex ].conditions.splice( _cIndex, 1 ); 
+        setWhispStrings( currentStrings );
+        triggerStrings();
+        updateString( _i );
+        triggerStrings();
+    }
         
     return (
         <stringsContext.Provider
@@ -64,6 +120,9 @@ export function StringsContextProvider( { children } ) {
                 addGroup, removeGroup,
                 updateString, updateStrings,
                 triggerStrings, changeGroupProps,
+                addBehavior, removeBehavior,
+                addAction, removeAction,
+                addCondition, removeCondition
             }} 
         >
         { children }
