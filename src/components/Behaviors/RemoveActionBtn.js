@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Typography, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { useStrings } from "../../context/StringsContext";
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -12,13 +12,11 @@ export default function RemoveActionBtn( { _index, _bIndex, _aIndex } ) {
     return ( <>
         <IconButton 
             aria-label="delete" 
-            variant='delete'
             disabled={_disabled}
             onClick={ handleClick } 
+            size='small'
         >
-            <DeleteIcon fontSize="medium"/>
+            <DeleteIcon fontSize="small"/>
         </IconButton>
     </> );
-    
-
 }

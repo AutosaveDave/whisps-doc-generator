@@ -10,10 +10,10 @@ export default function WhispsBehaviorActions( { _index, _bIndex } ) {
     const { actions } = behaviors[ _bIndex ];
 
     return ( <>
-        <Paper sx={{ backgroundColor: 'secondary.light' }}>
-            <Stack direction='column'>
+        <Paper sx={{ backgroundColor: 'secondary.light', p:1 }}>
+            <Stack direction='column' spacing={1}>
                 { actions.map( ( action, aIndex ) => (
-                    <BehaviorAction _index={_index} _bIndex={_bIndex} _aIndex={aIndex}  key={`wgroup-${ _index }-b-[${ _bIndex }]-action-${ aIndex }`} />
+                    <BehaviorAction _index={_index} _bIndex={_bIndex} _aIndex={aIndex} key={`wgroup-${ _index }-b-[${ _bIndex }]-action-${ aIndex }`} />
                 ) ) }
                 <AddActionBtn _index={ _index } _bIndex={ _bIndex } />
             </Stack>

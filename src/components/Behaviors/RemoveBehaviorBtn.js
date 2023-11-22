@@ -1,15 +1,22 @@
 import React from "react";
-import { Button, Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import { useStrings } from "../../context/StringsContext";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function RemoveConditionBtn( { _index, _bIndex, _cIndex } ) {
+export default function RemoveBehaviorBtn( { _index, _bIndex, } ) {
     const { removeBehavior } = useStrings();
     const handleClick = () => {
         removeBehavior( _index, _bIndex );
     }
     return ( <>
-        <Button variant="contained" color="warning" onClick={ handleClick } sx={{mt:3}}>
-            <Typography>Remove Behavior</Typography> 
-        </Button>
+        <IconButton 
+            aria-label="delete" 
+            variant='delete'
+            onClick={ handleClick } 
+            size='small'
+            
+        >
+            <DeleteIcon fontSize="small"/>
+        </IconButton>
     </> );
 }

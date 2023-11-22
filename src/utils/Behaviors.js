@@ -14,10 +14,14 @@ export const actionTypeProps = {
         ...followArgs
     },
 };
+export const conditionTypeArgNames = {
+    in: [ 'Min Distance', 'Max Distance' ],
+    out: [ 'Min Distance', 'Max Distance' ],
+}
 
 export const conditionProps = {
-    subjects: [ 'cursor', 'nearest'],
-    types: [ 'in', 'out' ],
+    subject: [ 'cursor', 'nearest'],
+    type: [ 'in', 'out' ],
 }
 
 export const defaultBehavior = {

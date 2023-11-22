@@ -67,10 +67,12 @@ const themeOptions = {
     },
     MuiIconButton: {
       defaultProps: {
-        color:'tertiary.main',
+        
         sx:{ 
+          color:'tertiary.light',
           bgcolor:'error.main', 
           borderRadius:'6%',
+          aspectRatio: 1,
           '&:hover': { 
             bgcolor:'error.light',
           }, 

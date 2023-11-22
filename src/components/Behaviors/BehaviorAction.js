@@ -29,11 +29,14 @@ export default function BehaviorAction( { _index, _bIndex, _aIndex } ) {
     }
 
     return ( <>
-        <Paper sx={{ backgroundColor:'secondary.main', p:1, m:1 }} >
+        <Paper sx={{ backgroundColor:'secondary.main', p:1, }} >
             <Stack direction="column" spacing={1}>
                 <Stack direction='row' justifyContent='space-between' sx={{alignContent:'start'}}>
                     <Typography variant='h6'>Action</Typography>
-                    <RemoveActionBtn _index={_index} _bIndex={_bIndex} _aIndex={_aIndex} />
+                    <Box maxHeight={0.8} >
+                        <RemoveActionBtn _index={_index} _bIndex={_bIndex} _aIndex={_aIndex} />
+                    </Box>
+                    
                 </Stack>
                 <Stack direction="row" spacing={1}>
                     <Select label='Action'
