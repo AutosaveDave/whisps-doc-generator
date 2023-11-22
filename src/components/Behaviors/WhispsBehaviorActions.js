@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Paper } from "@mui/material";
+import { Stack, Paper, Box } from "@mui/material";
 import { useStrings } from "../../context/StringsContext";
 import BehaviorAction from "./BehaviorAction";
 import AddActionBtn from "./AddActionBtn";
@@ -15,7 +15,10 @@ export default function WhispsBehaviorActions( { _index, _bIndex } ) {
                 { actions.map( ( action, aIndex ) => (
                     <BehaviorAction _index={_index} _bIndex={_bIndex} _aIndex={aIndex} key={`wgroup-${ _index }-b-[${ _bIndex }]-action-${ aIndex }`} />
                 ) ) }
-                <AddActionBtn _index={ _index } _bIndex={ _bIndex } />
+                <Box xs={4} textAlign='end'>
+                    <AddActionBtn _index={ _index } _bIndex={ _bIndex } />
+                </Box>
+                
             </Stack>
         </Paper>
     </> );

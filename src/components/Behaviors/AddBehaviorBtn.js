@@ -8,7 +8,7 @@ export default function AddBehaviorBtn( { _index } ) {
         addBehavior( _index );
     }
     return ( <>
-        <Button variant="contained" color="success" onClick={ handleClick } sx={{mt:3}}>
+        <Button variant="contained" color="success" onClick={ handleClick } >
             <Typography>Add Behavior</Typography> 
         </Button>
     </> );

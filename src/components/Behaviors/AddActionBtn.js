@@ -8,7 +8,7 @@ export default function AddActionBtn( { _index, _bIndex } ) {
         addAction( _index, _bIndex );
     }
     return ( <>
-        <Button variant="contained" color="success" onClick={ handleClick } sx={{mt:3}}>
+        <Button variant="contained" color="success" onClick={ handleClick }>
             <Typography>Add Action</Typography> 
         </Button>
     </> );

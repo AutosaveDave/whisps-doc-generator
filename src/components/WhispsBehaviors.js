@@ -18,14 +18,13 @@ export default function WhispsBehaviors( { _index } ) {
             <Stack direction='column' spacing={1}>
                 { behaviors.length > 0 &&
                     behaviors.map( ( behavior, i ) => (
-                        <Paper sx={{bgcolor:'secondary.main', px:1}} 
+                        <Paper sx={{bgcolor:'secondary.main', p:1}} 
                             key={`wgroup-${ _index }-b-paper-${ i }`}
                         >
                             <Stack direction='column' spacing={1}>
                                 <Stack direction='row' spacing={1} justifyContent='space-between' alignItems='center'>
                                     <Typography variant='h6' 
                                         color='tertiary.dark' 
-                                        sx={{ p:1 }}
                                     >Behavior {`${ i + 1 }`}</Typography>
                                     <Box maxHeight={0.8}>
                                         <RemoveBehaviorBtn _index={ _index } _bIndex={i} />
@@ -39,7 +38,10 @@ export default function WhispsBehaviors( { _index } ) {
                         </Paper>
                     ) )
                 }
-                <AddBehaviorBtn _index={_index} />
+                <Box xs={5} textAlign='center'>
+                    <AddBehaviorBtn _index={_index}  />
+                </Box>
+                
             </Stack>
         </Paper>
     </> );

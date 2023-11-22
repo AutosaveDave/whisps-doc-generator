@@ -70,11 +70,13 @@ const themeOptions = {
         
         sx:{ 
           color:'tertiary.light',
-          bgcolor:'error.main', 
+          bgcolor:'error.dark', 
           borderRadius:'6%',
           aspectRatio: 1,
+          p:0.4,
           '&:hover': { 
-            bgcolor:'error.light',
+            color:'tertiary.dark',
+            bgcolor:'error.main',
           }, 
         },
       }

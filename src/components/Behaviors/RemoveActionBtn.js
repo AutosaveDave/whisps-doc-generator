@@ -13,10 +13,10 @@ export default function RemoveActionBtn( { _index, _bIndex, _aIndex } ) {
         <IconButton 
             aria-label="delete" 
             disabled={_disabled}
-            onClick={ handleClick } 
-            size='small'
+            onClick={ handleClick }
+            size='small' 
         >
-            <DeleteIcon fontSize="small"/>
+            <DeleteIcon fontSize='small'/>
         </IconButton>
     </> );
 }

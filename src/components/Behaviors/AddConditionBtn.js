@@ -8,7 +8,7 @@ export default function AddConditionBtn( { _index, _bIndex } ) {
         addCondition( _index, _bIndex );
     }
     return ( <>
-        <Button variant="contained" color="success" onClick={ handleClick } sx={{mt:3}}>
+        <Button variant="contained" color="success" onClick={ handleClick } >
             <Typography>Add Condition</Typography> 
         </Button>
     </> );

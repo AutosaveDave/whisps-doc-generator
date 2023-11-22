@@ -28,7 +28,7 @@ export default function BehaviorCondition( { _index, _bIndex, _cIndex } ) {
     }
 
     return ( <>
-        <Paper sx={{ backgroundColor:'secondary.main', p:1, m:1 }} >
+        <Paper sx={{ backgroundColor:'secondary.main', p:1 }} >
             <Stack direction="column" spacing={1}>
                 <Stack direction='row' justifyContent='space-between' sx={{alignContent:'start'}}>
                     <Typography variant='h6'>Condition</Typography>
